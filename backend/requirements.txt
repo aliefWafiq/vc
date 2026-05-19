@@ -1,0 +1,15 @@
+fastapi
+uvicorn
+google-genai
+psycopg2-binary
+asyncpg
+sqlalchemy
+pgvector
+firebase-admin
+python-dotenv
+websockets
+pydantic
+python-multipart
+passlib[bcrypt]
+python-jose[cryptography]
+bcrypt

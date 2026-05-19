@@ -1,0 +1,161 @@
+@import "tailwindcss";
+
+@font-face {
+  font-family: 'Outfit';
+  src: url('https://fonts.googleapis.com/css2?family=Outfit:wght@100;300;400;500;600;700&display=swap');
+}
+
+:root {
+  --background: 240 10% 2%;
+  --foreground: 0 0% 98%;
+  --card: 240 10% 3%;
+  --card-foreground: 0 0% 98%;
+  --primary: 0 0% 100%;
+  --primary-foreground: 240 10% 2%;
+  --secondary: 240 5% 10%;
+  --secondary-foreground: 0 0% 98%;
+  --accent: 250 100% 70%;
+  --border: 240 5% 15%;
+  --radius: 1.5rem;
+}
+
+body {
+  background-color: #030303;
+  color: hsl(var(--foreground));
+  font-family: 'Inter', sans-serif;
+  letter-spacing: -0.01em;
+  -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
+}
+
+h1, h2, h3, h4, .font-display {
+  font-family: 'Outfit', sans-serif;
+  letter-spacing: -0.03em;
+}
+
+/* Premium Panel System */
+.pro-panel {
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.03) 0%, rgba(255, 255, 255, 0.01) 100%);
+  backdrop-filter: blur(24px);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.8);
+  transition: all 0.5s cubic-bezier(0.23, 1, 0.32, 1);
+}
+
+.pro-panel:hover {
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.06) 0%, rgba(255, 255, 255, 0.02) 100%);
+  border-color: rgba(255, 255, 255, 0.15);
+  transform: translateY(-4px);
+}
+
+/* Typography Enhancements */
+.text-gradient {
+  background: linear-gradient(to right, #ffffff, #a1a1aa);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.text-muted {
+  color: #71717a;
+}
+
+/* Button System */
+button {
+  cursor: pointer;
+}
+
+.btn-premium {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.75rem 2rem;
+  overflow: hidden;
+  font-weight: 500;
+  transition: all 0.3s ease;
+  background-color: white;
+  border-radius: 9999px;
+  color: black;
+}
+
+.btn-premium-inner {
+  position: absolute;
+  inset: 0;
+  width: 0;
+  height: 100%;
+  transition: all 0.3s ease-out;
+  background-color: #e5e5e5;
+}
+
+.btn-premium:hover .btn-premium-inner {
+  width: 100%;
+}
+
+.btn-premium-text {
+  position: relative;
+  z-index: 10;
+  color: black;
+}
+
+.btn-ghost {
+  padding: 0.75rem 2rem;
+  font-weight: 500;
+  transition: all 0.3s ease;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 9999px;
+  background: transparent;
+}
+
+.btn-ghost:hover {
+  background-color: rgba(255, 255, 255, 0.05);
+  border-color: rgba(255, 255, 255, 0.2);
+}
+
+
+/* Animations */
+.reveal {
+  opacity: 0;
+  transform: translateY(30px);
+  animation: reveal 1s cubic-bezier(0.23, 1, 0.32, 1) forwards;
+}
+
+@keyframes reveal {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes scan-line {
+  0% { top: 0%; opacity: 0; }
+  10% { opacity: 1; }
+  90% { opacity: 1; }
+  100% { top: 100%; opacity: 0; }
+}
+
+.animate-scan-line {
+  animation: scan-line 2s linear infinite;
+}
+
+/* Background Patterns */
+.bg-mesh {
+  background-image: 
+    radial-gradient(at 0% 0%, hsla(253,16%,7%,1) 0, transparent 50%), 
+    radial-gradient(at 50% 0%, hsla(225,39%,10%,1) 0, transparent 50%), 
+    radial-gradient(at 100% 0%, hsla(339,49%,10%,1) 0, transparent 50%);
+}
+
+.bg-dot-grid {
+  background-image: radial-gradient(rgba(255, 255, 255, 0.05) 1px, transparent 1px);
+  background-size: 40px 40px;
+}
+
+/* Glowing Elements */
+.glow-sm {
+  box-shadow: 0 0 20px rgba(255, 255, 255, 0.05);
+}
+
+.glow-hover:hover {
+  box-shadow: 0 0 40px rgba(255, 255, 255, 0.1);
+}
+
