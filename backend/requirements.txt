@@ -9,6 +9,7 @@ firebase-admin
 python-dotenv
 websockets
 pydantic
+email-validator
 python-multipart
 passlib[bcrypt]
 python-jose[cryptography]
