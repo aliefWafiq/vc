@@ -7,7 +7,7 @@ from dotenv import load_dotenv
 load_dotenv()
 
 # Use PostgreSQL from environment variable, fallback to SQLite for safety but prefer Postgres
-SQLALCHEMY_DATABASE_URL = os.getenv("DATABASE_URL", "postgresql://postgres:postgres@localhost:5432/vibe_closet")
+SQLALCHEMY_DATABASE_URL = os.getenv("DATABASE_URL", "sqlite:///./vibe.db")
 
 # For SQLite, we need connect_args={"check_same_thread": False}. 
 # For PostgreSQL, we don't.
