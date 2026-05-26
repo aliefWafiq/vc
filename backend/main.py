@@ -20,10 +20,14 @@ app = FastAPI(title="VibeCloset API")
 
 # Configure CORS
 origins = os.getenv("CORS_ORIGINS", "*").split(",")
+allow_credentials = True
+if "*" in origins:
+    allow_credentials = False
+
 app.add_middleware(
     CORSMiddleware,
     allow_origins=origins,
-    allow_credentials=True,
+    allow_credentials=allow_credentials,
     allow_methods=["*"],
     allow_headers=["*"],
 )
