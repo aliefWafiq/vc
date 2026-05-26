@@ -37,9 +37,9 @@ steps:
       - '-c'
       - |
         BACKEND_URL=$(gcloud run services describe vibe-backend --region us-central1 --format 'value(status.url)')
-        echo "Backend URL is: $BACKEND_URL"
+        echo "Backend URL is: $$BACKEND_URL"
         docker build \
-          --build-arg NEXT_PUBLIC_API_URL=$BACKEND_URL \
+          --build-arg NEXT_PUBLIC_API_URL=$$BACKEND_URL \
           -t gcr.io/$PROJECT_ID/vibe-frontend:$COMMIT_SHA \
           -t gcr.io/$PROJECT_ID/vibe-frontend:latest \
           ./frontend
