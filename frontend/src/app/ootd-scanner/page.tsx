@@ -103,7 +103,10 @@ export default function OOTDScannerPage() {
       formData.append('file', blob, 'ootd.jpg');
 
       const token = localStorage.getItem('token');
-      const headers = token ? { 'Authorization': `Bearer ${token}` } : {};
+      const headers: Record<string, string> = {};
+      if (token) {
+        headers['Authorization'] = `Bearer ${token}`;
+      }
 
       try {
         const response = await fetch(`${getApiUrl()}/api/ootd/scan`, {

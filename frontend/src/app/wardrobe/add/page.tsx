@@ -161,9 +161,14 @@ export default function AddClothingPage() {
       formData.append("file", file);
 
       const token = localStorage.getItem('token');
+      const headers: Record<string, string> = {};
+      if (token) {
+        headers['Authorization'] = `Bearer ${token}`;
+      }
+
       const response = await fetch(`${getApiUrl()}/api/identify`, {
         method: 'POST',
-        headers: token ? { 'Authorization': `Bearer ${token}` } : {},
+        headers: headers,
         body: formData
       });
 
