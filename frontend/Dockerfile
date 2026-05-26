@@ -1,5 +1,7 @@
 # Stage 1: Base node image
 FROM node:20-alpine AS base
+RUN node -v
+
 
 # Stage 2: Install dependencies
 FROM base AS deps
