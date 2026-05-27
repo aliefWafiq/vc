@@ -32,6 +32,14 @@ app.add_middleware(
     allow_headers=["*"],
 )
 
+@app.get("/api/debug/cors")
+def debug_cors():
+    return {
+        "CORS_ORIGINS_env": os.getenv("CORS_ORIGINS"),
+        "origins_parsed": origins,
+        "allow_credentials": allow_credentials
+    }
+
 oauth2_scheme = OAuth2PasswordBearer(tokenUrl="api/auth/login")
 
 # --- Gemini Configuration ---
