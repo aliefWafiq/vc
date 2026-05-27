@@ -26,7 +26,7 @@ steps:
       - '--platform'
       - 'managed'
       - '--allow-unauthenticated'
-      - '--set-env-vars'
+      - '--update-env-vars'
       - 'GEMINI_MODEL=gemini-2.5-flash'
     id: 'deploy-backend'
 
