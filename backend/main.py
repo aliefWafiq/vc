@@ -34,10 +34,14 @@ app.add_middleware(
 
 @app.get("/api/debug/cors")
 def debug_cors():
+    key = os.getenv("GEMINI_API_KEY")
+    key_obfuscated = f"{key[:5]}...{key[-5:]}" if key else None
     return {
         "CORS_ORIGINS_env": os.getenv("CORS_ORIGINS"),
         "origins_parsed": origins,
-        "allow_credentials": allow_credentials
+        "allow_credentials": allow_credentials,
+        "GEMINI_API_KEY_env": key_obfuscated,
+        "gemini_client_initialized": client is not None
     }
 
 oauth2_scheme = OAuth2PasswordBearer(tokenUrl="api/auth/login")
