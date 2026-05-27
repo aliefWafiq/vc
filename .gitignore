@@ -1,0 +1,21 @@
+# Sensitive files (API keys, DB URLs)
+.env
+.env.local
+.env.*
+*.env
+
+# Python files
+__pycache__/
+*.py[cod]
+*$py.class
+venv/
+.venv/
+.pytest_cache/
+*.db
+
+# Node.js files
+node_modules/
+.next/
+dist/
+out/
+.next/
