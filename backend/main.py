@@ -45,8 +45,10 @@ def debug_cors():
         "origins_parsed": origins,
         "allow_credentials": allow_credentials,
         "GEMINI_API_KEY_env": key_obfuscated,
-        "gemini_client_initialized": client is not None
+        "gemini_client_initialized": client is not None,
+        "env_keys": list(os.environ.keys())
     }
+
 
 oauth2_scheme = OAuth2PasswordBearer(tokenUrl="api/auth/login")
 
