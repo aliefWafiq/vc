@@ -14,7 +14,11 @@ import models, schemas, auth_utils, database
 from database import engine, get_db
 
 # Create database tables
-models.Base.metadata.create_all(bind=engine)
+try:
+    models.Base.metadata.create_all(bind=engine)
+except Exception as db_err:
+    print(f"WARNING: Failed to connect to database or create tables on startup: {db_err}")
+
 
 app = FastAPI(title="VibeCloset API")
 
